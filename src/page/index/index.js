@@ -1,2 +1,4 @@
-cats = require('./cats.js')
-console.log(cats)
+
+
+require('./index.css')
+console.log("hello index");
