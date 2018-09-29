@@ -1,7 +1,23 @@
 
 //使用plugins时要使用webpack变量
 var webpack = require('webpack');
+//独立打包css插件
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+//html插件
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+//获取html插件配置对象
+var getHtmlConfig = function (name) {
+    return {
+        //html模板
+        template: './src/view/'+name+'.html',
+        //生成的html页面
+        filename: 'view/'+name+'.html',
+        inject: true,
+        hash: true,
+        //引入的js文件
+        chunks: ['common',name]
+    }
+}
 
 var config = {
     entry: {
@@ -29,7 +45,7 @@ var config = {
         ]
     },
     plugins: [
-        //自动抽取公共模块到base.js
+        //自动抽取公共模块到js/base.js
         new webpack.optimize.CommonsChunkPlugin({
             //这里name和entry里的common相对应，可以实现把公共模块打包到base.js
             name: 'common',
@@ -38,7 +54,11 @@ var config = {
         }),
         //这个插件把css打包成独立的css文件，并不是在js中的css
         //[name]是个变量，对应于entry里的name
-        new ExtractTextPlugin('css/[name].css')
+        new ExtractTextPlugin('css/[name].css'),
+        //html模板的处理
+        //如果要生成多个html页面，就要new多个这个对象，传对应参数即可
+        //这个插件也支持ejs语法，可以在html中引入局部模块的html，但要安装html-loader，使用ejs语法即可
+        new HtmlWebpackPlugin(getHtmlConfig('index'))
     ]
 }
 module.exports = config;
