@@ -3,23 +3,23 @@ webpackJsonp([2],{
 /***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(8);
+	module.exports = __webpack_require__(10);
 
 
 /***/ }),
 
-/***/ 8:
+/***/ 10:
 /***/ (function(module, exports, __webpack_require__) {
 
 	
 
-	var test = __webpack_require__(9)
+	var test = __webpack_require__(11)
 	console.log('hello login')
 
 
 /***/ }),
 
-/***/ 9:
+/***/ 11:
 /***/ (function(module, exports) {
 
 	module.exports = {
