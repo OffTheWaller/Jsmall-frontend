@@ -5,6 +5,8 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 //html插件
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+//环境变量配置  dev || online
+var WEBPACK_ENV = process.env.WEBPACK_ENV || 'dev';
 //获取html插件配置对象
 var getHtmlConfig = function (name) {
     return {
@@ -21,6 +23,7 @@ var getHtmlConfig = function (name) {
 
 var config = {
     entry: {
+        //common后面是webpack-dev-server的配置
         'common': ['./src/page/common/index.js'],
         'index' : ['./src/page/index/index.js'],
         'login' : ['./src/page/login/index.js']
@@ -28,6 +31,8 @@ var config = {
     output: {
         //output里的path是所有输出文件的根目录
         path: './dist',
+        //访问地址
+        publicPath: '/dist',
         //执行webpack指令后，打包好的文件在dist/js/下
         //[name]的作用是生成对应的多个js文件
         filename: 'js/[name].js'
@@ -62,5 +67,11 @@ var config = {
         //这个插件也支持ejs语法，可以在html中引入局部模块的html，但要安装html-loader，使用ejs语法即可
         new HtmlWebpackPlugin(getHtmlConfig('index'))
     ]
+}
+
+//判断是开发还是线上环境
+//使用webpack-dev-server时的指令是：WEBPACK_ENV=dev webpack-dev-server --inline --port 8080
+if ('dev' === WEBPACK_ENV) {
+    config.entry.common.push('webpack-dev-server/client?http://localhost:8080/');
 }
 module.exports = config;
