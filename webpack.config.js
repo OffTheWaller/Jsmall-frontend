@@ -51,6 +51,15 @@ var config = {
             { test: /\.(png|svg|jpg|gif|woff|woff2|svg|eot|ttf)$/, loader: 'file-loader?limit=100&name=resource/[name].[ext]' }
         ]
     },
+    //配置相关目录路径
+    resolve: {
+        alias: {
+            util: __dirname + '/src/util',
+            page: __dirname + '/src/page',
+            service: __dirname + '/src/service',
+            image: __dirname + '/src/image',
+        }
+    },
     plugins: [
         //自动抽取公共模块到js/base.js
         new webpack.optimize.CommonsChunkPlugin({
