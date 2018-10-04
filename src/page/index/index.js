@@ -3,5 +3,9 @@
  */
 'use strict';
 var _myUtil = require('util/myutil.js')
-console.log(_myUtil.getUrlParam('keyword'))
+var html = '<h1>{{msg}}</h1>';
+var data = {
+    msg: 'hello'
+};
+console.log(_myUtil.renderHtml(html, data))
 

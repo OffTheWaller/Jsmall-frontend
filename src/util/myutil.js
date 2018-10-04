@@ -3,9 +3,10 @@
  */
 'use strict';
 
+var hogan = require('hogan.js');
 var conf = {
     serverHost: ''
-}
+};
 var _myUtil = {
 
     /**
@@ -58,6 +59,16 @@ var _myUtil = {
         var result = window.location.search.substr(1).match(reg);
         
         return result ? decodeURIComponent(result[2]) : null;
+    },
+
+    /**
+     * 渲染html模板
+     * 使用hogan组件
+     */
+    renderHtml: function (htmlTemplate, data) {
+        var template = hogan.compile(htmlTemplate);
+        var result = template.render(data);
+        return result;
     },
 
     /**
