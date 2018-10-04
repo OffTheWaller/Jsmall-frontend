@@ -78,7 +78,46 @@ var _myUtil = {
      */
     doLogin: function () {
         window.location.href = './login.html?redirect' + encodeURIComponent(window.location.href);
+    },
+
+    /**
+     * 跳转到主页方法
+     */
+    goHome: function () {
+        window.location.href = './index.html';
+    },
+
+    /**
+     * 成功提示和失败提示
+     */
+    successTips: function (msg) {
+        alert(msg || '操作成功！');
+    },
+    errorTips: function (msg) {
+        alert(msg || '操作失败！');
+    },
+
+    /**
+     * 手机，邮箱信息验证
+     * 支持非空，手机，邮箱的判断
+     */
+    validate: function (value, type) {
+        var value = $.trim(value);
+        if ('require' === type) { //require表示必填，非空验证
+            return !!value;  //!!是把value强转为Boolean型
+        }
+        //手机号验证
+        if ('phone' === type) {
+            return /^1\d{10}$/.test(value);
+        }
+        //邮箱验证
+        if ('email' === type) {
+            return /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/.test(value);
+        }
     }
+
+
+
 }
 
 module.exports = _myUtil;
