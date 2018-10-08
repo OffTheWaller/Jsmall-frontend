@@ -14,9 +14,11 @@ var getHtmlConfig = function (name) {
         template: './src/view/'+name+'.html',
         //生成的html页面
         filename: 'view/'+name+'.html',
+        //inject为true表示script标签位于html文件body的底部
         inject: true,
         hash: true,
-        //引入的js文件
+        //chunks用于多入口文件时确定引入的js文件
+        //chunks是一个数组，里面的名字就是入口js文件的名字
         chunks: ['common',name]
     }
 }
@@ -48,12 +50,13 @@ var config = {
             //cssloader，中间的!表示两个loader串联，使用loader时要先用npm安装到--save-dev
             { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader','css-loader')},
             //加载图片和字体文件的loader，需要同时npm i file-loader 和 url-loader
-            { test: /\.(png|svg|jpg|gif|woff|woff2|svg|eot|ttf)$/, loader: 'file-loader?limit=100&name=resource/[name].[ext]' }
+            { test: /\.(png|svg|jpg|gif|woff|woff2|svg|eot|ttf)$/, loader: 'url-loader?limit=100&name=resource/[name].[ext]' }
         ]
     },
     //配置相关目录路径
     resolve: {
         alias: {
+            node_modules: __dirname + '/node_modules',
             util: __dirname + '/src/util',
             page: __dirname + '/src/page',
             service: __dirname + '/src/service',
