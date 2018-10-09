@@ -50,7 +50,7 @@ var config = {
             //cssloader，中间的!表示两个loader串联，使用loader时要先用npm安装到--save-dev
             { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader','css-loader')},
             //加载图片和字体文件的loader，需要同时npm i file-loader 和 url-loader
-            { test: /\.(png|svg|jpg|gif|woff|woff2|svg|eot|ttf)$/, loader: 'url-loader?limit=100&name=resource/[name].[ext]' }
+            { test: /\.(png|svg|jpg|gif|woff|woff2|svg|eot|ttf)\??.*$/, loader: 'file-loader?limit=8192&name=resource/[name].[ext]' }
         ]
     },
     //配置相关目录路径
