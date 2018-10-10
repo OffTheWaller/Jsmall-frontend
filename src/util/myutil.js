@@ -77,6 +77,7 @@ var _myUtil = {
      * 当前地址当做参数传入，使得登录后跳转回之前的页面
      */
     doLogin: function () {
+        
         window.location.href = './login.html?redirect' + encodeURIComponent(window.location.href);
     },
 
