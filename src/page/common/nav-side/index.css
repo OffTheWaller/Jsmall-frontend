@@ -1,0 +1,23 @@
+/* 导航主体 */
+.nav-side {
+    float: left;
+    width: 130px;
+    /* 如果没有高度，未加载出来之前会使右侧的盒子往左移动 */
+    min-height: 100px;
+}
+.nav-side .nav-item {
+    line-height: 25px;
+    font-size: 13px;
+    color: #ccc;
+}
+.nav-side .nav-item .link {
+    color: #666;
+}
+.nav-side .nav-item.active .link {
+    color: #c60023;
+}
+/* 右侧内容区 */
+.content.with-nav {
+    float: left;
+    width: 950px;
+}

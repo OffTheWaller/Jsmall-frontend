@@ -14,6 +14,7 @@ var nav = {
         this.bindEvent();
         this.loadUserInfo();
         this.loadCartCount();
+        //这里的this指向的就是这个nav对象
         return this;
     },
     bindEvent: function () {
