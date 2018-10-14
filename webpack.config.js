@@ -8,7 +8,8 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 //环境变量配置  dev || online
 var WEBPACK_ENV = process.env.WEBPACK_ENV || 'dev';
 //获取html插件配置对象
-var getHtmlConfig = function (name) {
+var getHtmlConfig = function (name, title) {
+    //这里return出去的是HtmlWebpackPlugin的options对象
     return {
         //html模板
         template: './src/view/'+name+'.html',
@@ -16,6 +17,8 @@ var getHtmlConfig = function (name) {
         filename: 'view/'+name+'.html',
         //inject为true表示script标签位于html文件body的底部
         inject: true,
+        //增加title字段，里面存每个页面的title
+        title: title,
         hash: true,
         //chunks用于多入口文件时确定引入的js文件
         //chunks是一个数组，里面的名字就是入口js文件的名字
@@ -28,7 +31,8 @@ var config = {
         //common后面是webpack-dev-server的配置
         'common': ['./src/page/common/index.js'],
         'index' : ['./src/page/index/index.js'],
-        'login' : ['./src/page/login/index.js']
+        'login' : ['./src/page/login/index.js'],
+        'result' : ['./src/page/result/index.js']
     },
     output: {
         //output里的path是所有输出文件的根目录
@@ -79,7 +83,8 @@ var config = {
         //html模板的处理
         //如果要生成多个html页面，就要new多个这个对象，传对应参数即可
         //这个插件也支持ejs语法，可以在html中引入局部模块的html，但要安装html-loader，使用ejs语法即可
-        new HtmlWebpackPlugin(getHtmlConfig('index'))
+        new HtmlWebpackPlugin(getHtmlConfig('index','首页')),
+        new HtmlWebpackPlugin(getHtmlConfig('result', '操作结果提示页'))
     ]
 }
 
