@@ -26,3 +26,11 @@ module.exports = _myUtil;
   - 增加`entry`下面的入口文件: `'xxx' : ['./src/page/xxx/index.js']`
   - new 一个新的HtmlWebpackPlugin() : `new HtmlWebpackPlugin(getHtmlConfig('xxx', 'title'))`
   - 只要修改了`webpack.config.js`文件，就要重启项目
+
+### 测试用户
+admin18
+admin18
+13911111111
+11111@qq.com
+我的名字是？
+admin18

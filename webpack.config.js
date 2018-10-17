@@ -32,6 +32,7 @@ var config = {
         'common': ['./src/page/common/index.js'],
         'index' : ['./src/page/index/index.js'],
         'user-login' : ['./src/page/user-login/index.js'],
+        'user-register' : ['./src/page/user-register/index.js'],
         'result' : ['./src/page/result/index.js']
     },
     output: {
@@ -85,7 +86,8 @@ var config = {
         //这个插件也支持ejs语法，可以在html中引入局部模块的html，但要安装html-loader，使用ejs语法即可
         new HtmlWebpackPlugin(getHtmlConfig('index','首页')),
         new HtmlWebpackPlugin(getHtmlConfig('result', '操作结果提示页')),
-        new HtmlWebpackPlugin(getHtmlConfig('user-login', '用户登录页'))
+        new HtmlWebpackPlugin(getHtmlConfig('user-login', '用户登录页')),
+        new HtmlWebpackPlugin(getHtmlConfig('user-register', '用户注册页'))
     ]
 }
 

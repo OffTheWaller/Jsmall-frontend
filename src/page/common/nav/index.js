@@ -13,15 +13,15 @@ var nav = {
     init: function () {
         this.bindEvent();
         this.loadUserInfo();
-        this.loadCartCount();
+        // this.loadCartCount();
         //这里的this指向的就是这个nav对象
         return this;
     },
     bindEvent: function () {
         //登录点击事件
         $('.js-login').click(function () {
-            // _myUtil.doLogin();
-            alert('登录啦！')
+            window.location.href = './user-login.html'
+            // alert('登录啦！')
         });
         //注册点击事件
         $('.js-register').click(function () {
