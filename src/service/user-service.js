@@ -47,6 +47,37 @@ var _user = {
             error: reject
         })
     },
+    // 获取修改密码提示问题
+    getQuestion: function (username, resolve, reject) {
+        _myUtil.request({
+            url: _myUtil.getServerUrl('/user/forget_get_question.do'),
+            data: {
+                username: username
+            },
+            method: 'POST',
+            success: resolve,
+            error: reject
+        })
+    },
+    checkAnswer: function (userInfo, resolve, reject) {
+        _myUtil.request({
+            url: _myUtil.getServerUrl('/user/forget_check_answer.do'),
+            data: userInfo,
+            method: 'POST',
+            success: resolve,
+            error: reject
+        })
+    },
+    // 重置密码
+    resetPassword: function (userInfo, resolve, reject) {
+        _myUtil.request({
+            url: _myUtil.getServerUrl('/user/forget_reset_password.do'),
+            data: userInfo,
+            method: 'POST',
+            success: resolve,
+            error: reject
+        })
+    },
     //登出
     logout: function (resolve, reject) {
         _myUtil.request({
