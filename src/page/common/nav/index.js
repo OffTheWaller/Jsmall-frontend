@@ -11,6 +11,7 @@ var _cart = require('service/cart-service.js')
 //导航
 var nav = {
     init: function () {
+        
         this.bindEvent();
         this.loadUserInfo();
         // this.loadCartCount();
@@ -19,9 +20,11 @@ var nav = {
     },
     bindEvent: function () {
         //登录点击事件
+        
         $('.js-login').click(function () {
-            window.location.href = './user-login.html'
+            // window.location.href = './user-login.html'  不能跳到死页面，要执行doLogin方法
             // alert('登录啦！')
+            _myUtil.doLogin();
         });
         //注册点击事件
         $('.js-register').click(function () {
@@ -38,10 +41,12 @@ var nav = {
     },
     //加载用户信息
     loadUserInfo: function () {
+        
         _user.checkLogin(function (res) {
-            $('.user.not-login').hide().siblings('.user.login').show().find('.username').text(res.username);
+            
+            // $('.user.not-login').hide().siblings('.user.login').show().find('.username').text(res.username);
         }, function (errMsg) {
-
+            console.log(errMsg)
         });
     },
     //加载购物车数量

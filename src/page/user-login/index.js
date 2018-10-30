@@ -46,6 +46,7 @@ var page = {
             //提交
             _user.login(formData, function (res) {
                 window.location.href = _myUtil.getUrlParam('redirect') || './index.html';
+                // console.log(res)
             }, function (errMsg) {
                 formError.show(errMsg)
             });
