@@ -87,6 +87,16 @@ var _user = {
             error: reject
         })
     },
+    //更新个人信息
+    updateUserInfo: function (userInfo, resolve, reject) {
+        _myUtil.request({
+            url: _myUtil.getServerUrl('/user/update_information.do'),
+            data: userInfo,
+            method: 'POST',
+            success: resolve,
+            error: reject
+        })
+    },
     //登出
     logout: function (resolve, reject) {
         _myUtil.request({
