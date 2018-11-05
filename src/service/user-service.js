@@ -3,6 +3,8 @@
  */
 'use strict'
 var _myUtil = require('util/myutil.js')
+//require进来mock.js文件，全是mock数据
+require('./mock.js')
 
 var _user = {
     //用户登录

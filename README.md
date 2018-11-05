@@ -29,7 +29,7 @@ module.exports = _myUtil;
 
 ### 测试用户
 admin18
-admin18
+123456
 13911111111
 11111@qq.com
 我的名字是？

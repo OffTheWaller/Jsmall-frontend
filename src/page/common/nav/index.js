@@ -43,10 +43,10 @@ var nav = {
     loadUserInfo: function () {
         
         _user.checkLogin(function (res) {
-            
-            // $('.user.not-login').hide().siblings('.user.login').show().find('.username').text(res.username);
+            console.log(res)
+            $('.user.not-login').hide().siblings('.user.login').show().find('.username').text(res.username);
         }, function (errMsg) {
-            console.log(errMsg)
+            
         });
     },
     //加载购物车数量
