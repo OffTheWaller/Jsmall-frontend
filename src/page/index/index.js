@@ -7,6 +7,6 @@ var navSide = require('page/common/nav-side/index.js')
 require('page/common/header/index.js')
 
 navSide.init({
-    name: 'user-center'
+    name: ''
 });
 

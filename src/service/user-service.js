@@ -4,7 +4,7 @@
 'use strict'
 var _myUtil = require('util/myutil.js')
 //require进来mock.js文件，全是mock数据
-require('./mock.js')
+require('./user-mock.js')
 
 var _user = {
     //用户登录
@@ -93,6 +93,16 @@ var _user = {
     updateUserInfo: function (userInfo, resolve, reject) {
         _myUtil.request({
             url: _myUtil.getServerUrl('/user/update_information.do'),
+            data: userInfo,
+            method: 'POST',
+            success: resolve,
+            error: reject
+        })
+    },
+    //修改密码
+    updatePassword: function (userInfo, resolve, reject) {
+        _myUtil.request({
+            url: _myUtil.getServerUrl('/user/reset_password.do'),
             data: userInfo,
             method: 'POST',
             success: resolve,

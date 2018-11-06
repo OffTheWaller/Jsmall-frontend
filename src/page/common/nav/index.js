@@ -43,7 +43,6 @@ var nav = {
     loadUserInfo: function () {
         
         _user.checkLogin(function (res) {
-            console.log(res)
             $('.user.not-login').hide().siblings('.user.login').show().find('.username').text(res.username);
         }, function (errMsg) {
             
