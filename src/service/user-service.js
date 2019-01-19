@@ -3,14 +3,14 @@
  */
 'use strict'
 var _myUtil = require('util/myutil.js')
-//require进来mock.js文件，全是mock数据
-require('./user-mock.js')
+// //require进来mock.js文件，全是mock数据
+// require('./user-mock.js')
 
 var _user = {
     //用户登录
     login: function (userInfo, resolve, reject) {
         _myUtil.request({
-            url: _myUtil.getServerUrl('/user/login.do'),
+            url: _myUtil.getServerUrl('user/login.do'),
             data: userInfo,
             method: 'POST',
             success: resolve,
@@ -20,7 +20,7 @@ var _user = {
     //检查用户名
     checkUsername: function (username, resolve, reject) {
         _myUtil.request({
-            url: _myUtil.getServerUrl('/user/check_valid.do'),
+            url: _myUtil.getServerUrl('user/check_valid.do'),
             data: {
                 type: 'username',
                 str: username
@@ -33,7 +33,7 @@ var _user = {
     //用户注册
     register: function (userInfo, resolve, reject) {
         _myUtil.request({
-            url: _myUtil.getServerUrl('/user/register.do'),
+            url: _myUtil.getServerUrl('user/register.do'),
             data: userInfo,
             method: 'POST',
             success: resolve,
@@ -43,7 +43,7 @@ var _user = {
     //检查登录状态
     checkLogin: function (resolve, reject) {
         _myUtil.request({
-            url: _myUtil.getServerUrl('/user/get_user_info.do'),
+            url: _myUtil.getServerUrl('user/get_user_info.do'),
             method: 'POST',
             success: resolve,
             error: reject
@@ -52,7 +52,7 @@ var _user = {
     // 获取修改密码提示问题
     getQuestion: function (username, resolve, reject) {
         _myUtil.request({
-            url: _myUtil.getServerUrl('/user/forget_get_question.do'),
+            url: _myUtil.getServerUrl('user/forget_get_question.do'),
             data: {
                 username: username
             },
@@ -63,7 +63,7 @@ var _user = {
     },
     checkAnswer: function (userInfo, resolve, reject) {
         _myUtil.request({
-            url: _myUtil.getServerUrl('/user/forget_check_answer.do'),
+            url: _myUtil.getServerUrl('user/forget_check_answer.do'),
             data: userInfo,
             method: 'POST',
             success: resolve,
@@ -73,7 +73,7 @@ var _user = {
     // 重置密码
     resetPassword: function (userInfo, resolve, reject) {
         _myUtil.request({
-            url: _myUtil.getServerUrl('/user/forget_reset_password.do'),
+            url: _myUtil.getServerUrl('user/forget_reset_password.do'),
             data: userInfo,
             method: 'POST',
             success: resolve,
@@ -83,7 +83,7 @@ var _user = {
     //获取用户信息
     getUserInfo: function (resolve, reject) {
         _myUtil.request({
-            url: _myUtil.getServerUrl('/user/get_information.do'),
+            url: _myUtil.getServerUrl('user/get_information.do'),
             method: 'POST',
             success: resolve,
             error: reject
@@ -92,7 +92,7 @@ var _user = {
     //更新个人信息
     updateUserInfo: function (userInfo, resolve, reject) {
         _myUtil.request({
-            url: _myUtil.getServerUrl('/user/update_information.do'),
+            url: _myUtil.getServerUrl('user/update_information.do'),
             data: userInfo,
             method: 'POST',
             success: resolve,
@@ -102,7 +102,7 @@ var _user = {
     //修改密码
     updatePassword: function (userInfo, resolve, reject) {
         _myUtil.request({
-            url: _myUtil.getServerUrl('/user/reset_password.do'),
+            url: _myUtil.getServerUrl('user/reset_password.do'),
             data: userInfo,
             method: 'POST',
             success: resolve,
@@ -112,7 +112,7 @@ var _user = {
     //登出
     logout: function (resolve, reject) {
         _myUtil.request({
-            url: _myUtil.getServerUrl('/user/logout.do'),
+            url: _myUtil.getServerUrl('user/logout.do'),
             method: 'POST',
             success: resolve,
             error: reject

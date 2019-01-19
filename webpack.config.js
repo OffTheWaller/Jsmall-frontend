@@ -48,6 +48,15 @@ var config = {
         //[name]的作用是生成对应的多个js文件
         filename: 'js/[name].js'
     },
+    //配置代理
+    devServer: {
+        proxy: {
+            'http://localhost:8080': {
+                target: 'http://www.happymmall.com',
+                changeOrigin: true
+            }
+        }
+    },
     //为了直接在页面中加载jquery CDN时的配置，自己规定了一个外部的模块
     //在使用jquery，当做模块直接require进来就行了
     externals: {

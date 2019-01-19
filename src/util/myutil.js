@@ -5,7 +5,7 @@
 
 var hogan = require('hogan.js');
 var conf = {
-    serverHost: ''
+    serverHost: 'http://localhost:8080/'
 };
 var _myUtil = {
 
